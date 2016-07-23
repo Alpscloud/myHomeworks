@@ -3,8 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <title>Homework</title>
+    <style>
+    	input {
+    		border: 1px solid #333;
+    		padding: 10px 15px;
+    		font-size: 14px;
+    		cursor: pointer;
+    		outline: none;
+    		background: transparent;
+    		-webkit-transition: all .3s ease-in-out;
+    		   -moz-transition: all .3s ease-in-out;
+    		    -ms-transition: all .3s ease-in-out;
+    			 -o-transition: all .3s ease-in-out;
+    			    transition: all .3s ease-in-out;
+    	}
+
+    	input:hover,
+    	input:focus {
+    		background-color: #333;
+    		color: #fff;
+    	}
+    </style>
 </head>
 <body>
 <!--     Создайте счетчик, который начинает отчет с 1 и заканчивается на 30, также добавьте кнопки который останавливают отчет, и запускают его заново и добавьте кнопку обнуляющую отчет. Также попробуйте изменить код так чтобы отчет начинался с 30 и заканчивался на 1. -->
+<p id="timer"><span></span></p>
+<input type="button" onclick="startTimer();" value="Запустить таймер">
+<input type="button" onclick="stopTimer();" value="Остановить таймер">
+<input type="button" onclick="resetTimer();" value="Обнулить таймер">
+
+<script>
+	// Глобальные переменные
+	var clock = document.getElementById('timer'),
+		time = 30; // Для обратного отсчета. Для нормального отсчета time = 0
+
+	function startTimer() {
+		timer = setInterval(function () {
+			time--; // для обратного отсчета. Для нормального отсчета time++
+			clock.innerHTML = time + ' сек';
+			if (time <= 1) { // для обратного отсчета. Для нормального отсчета time >=30
+				stopTimer();
+			}
+		}, 1000) 
+	};
+
+	function stopTimer() {
+		clearTimeout(timer);
+	};
+
+	function resetTimer() {
+		clearTimeout(timer);
+		time = 0;
+		clock.innerHTML = time + ' cек';
+	};
+</script>
 </body>
 </html>
