@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>First Title</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="wrapper">
+		<h1>Домашнее задание</h1>
+		<ul id="menu">
+			<li>Первый пункт</li>
+			<li>Второй пункт</li>
+			<li>Третий пункт</li>
+			<li>Четвертый пункт</li>
+			<li>Пятый пункт</li>
+		</ul>
+
+		<input type="button" value= "Выбрать первый элемент" onclick="addActiveToFirstItem();">
+		<input type="button" value= "Выбрать последний элемент" onclick="addActiveToLastItem();">
+		<input type="button" value= "Выбрать следующий элемент" onclick="choiceNextItem();">
+		<input type="button" value= "Выбрать предыдущий элемент" onclick="">
+		<input type="button" value= "Добавить элемент" onclick="addItemInTheEnd();">
+		<input type="button" value= "Удалить элемент" onclick="removeItem();">
+		<input type="button" value= "Добавить в начало" onclick="addItemAtStart();">
+	</div>
+	
+	<script async src="homework.js"></script>
+</body>
+</html>

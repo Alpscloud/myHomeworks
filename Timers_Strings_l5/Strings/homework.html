@@ -1,0 +1,45 @@
+<!-- 
+    Запросите у пользователя ввести какую-то фразу. Отобразите каждое отдельное слово в виде списка ul li. Также отобразите первое слово UPPERCASE, а последние 2 с маленькой. Найдите все буквы "а"  их количество выведите в модальное окно. 
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+<body>
+<script>
+	var userPhrase = prompt("Введите случайную фразу из нескольких слов:"), // получаем фразу
+ 		phraseWords = userPhrase.split(' '), // переводим фразу в массив
+		createList = document.createElement('ul'); // создаем список ul 
+
+	document.body.appendChild(createList); // вставляем список в документ
+
+	var takeListFromDOM = document.querySelector('ul'); // получаем назад список из документа и разбиваем каждое слово на лишки
+	for (var i = 0; i < phraseWords.length; i++) {
+		var template = '<li>'+ phraseWords[i] + '</li>';
+
+		// проверка индекса первого слова и последнего\предпоследнего
+		if(phraseWords[i] == 0) {
+			var upperWord = phraseWords[i].innerHTML.toUpperCase();
+			phraseWords[i].innerHTML = upperWord;
+		} else if (phraseWords[i] == phraseWords.length-1 || phraseWords[i] == phraseWords.length-2) {
+			var lowerWord = phraseWords[i].innerHTML.toLowerCase();
+			phraseWords[i].innerHTML.toLowerCase() = lowerWord;
+		};
+
+		takeListFromDOM.insertAdjacentHTML('afterBegin', template);
+	};
+
+	// Вывод кол-ва букв а
+	var lettersA = 0;
+
+	for (var i = 0; i < phraseWords.length; i++) {
+		if(phraseWords[i].indexOf('а') != -1) {
+			lettersA++;
+		};
+	};
+	alert(lettersA);
+</script>
+</body>
+</html>
