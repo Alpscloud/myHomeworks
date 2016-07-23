@@ -19,7 +19,7 @@
 	for (var i = 0; i < phraseWords.length; i++) {
 		var template = '<li>'+ phraseWords[i] + '</li>';
 
-		// проверка индекса первого слова и последнего\предпоследнего
+		// проверка индекса первого слова и последнего\предпоследнего - так не работает!
 		if(phraseWords[i] == 0) {
 			var upperWord = phraseWords[i].innerHTML.toUpperCase();
 			phraseWords[i].innerHTML = upperWord;
@@ -30,6 +30,15 @@
 
 		takeListFromDOM.insertAdjacentHTML('afterBegin', template);
 	};
+
+	// так работает
+	// var firtsPhrase = takeListFromDOM.children[0].innerHTML.toUpperCase();
+ //        takeListFromDOM.children[0].innerHTML = firtsPhrase;
+
+ //    var lastPhrase = takeListFromDOM.children[takeListFromDOM.children.length -1].innerHTML.toLowerCase();
+ //    var afterLastPhrase = takeListFromDOM.children[takeListFromDOM.children.length -2].innerHTML.toLowerCase();
+ //        takeListFromDOM.children[takeListFromDOM.children.length -1].innerHTML = lastPhrase;
+ //        takeListFromDOM.children[takeListFromDOM.children.length -2].innerHTML = afterLastPhrase;
 
 	// Вывод кол-ва букв а
 	var lettersA = 0;
