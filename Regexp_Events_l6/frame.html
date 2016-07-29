@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Frame</title>
+</head>
+<body>
+	<input type="button" value="Click me" id="button" onclick="parent.changeBody();">
+
+	<script>
+		function changeBody() {
+			document.body.style.cssText = "background: red";
+		};
+
+		// var btn = document.getElementById('button');
+		// 	btn.onclick = parent.changeBody;
+		
+	</script>
+</body>
+</html>
