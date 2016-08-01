@@ -5,15 +5,22 @@
 	<title>Frame</title>
 </head>
 <body>
-	<input type="button" value="Click me" id="button" onclick="parent.changeBody();">
+	<input type="button" value="Click me" id="button" onclick="changeBody();">
 
 	<script>
-		function changeBody() {
+		 function changeBody() {
 			document.body.style.cssText = "background: red";
 		};
 
+		// доступ к родителю
+		// window.parent
+
+		// var changeBody = function () {
+		// 	document.body.style.cssText = "background: red";
+		// };
+
 		// var btn = document.getElementById('button');
-		// 	btn.onclick = parent.changeBody;
+		// 	btn.addEventListener('click', parent.changeBody, true);
 		
 	</script>
 </body>

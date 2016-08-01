@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Hide Blocks</title>
+	<style>
+		div {
+			margin-bottom: 15px;
+			padding: 10px;
+			border: 1px solid green;
+		}
+		button {display: block;}
+		#stopEventButton {margin-bottom: 30px;}
+
+		/* скрытие текста */
+		.hidden {display: none;}
+	</style>
+</head>
+<body>
+    <!-- Создайте 5 блоков с текстом. Добавьте в каждый из блоков кнопку для его удаления. Используйте только один обработчик. -->
+
+	<div id="container">
+		<h1>Удаление блоков</h1>
+		<div>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde sit totam quae corporis quam a culpa ducimus suscipit accusamus facilis mollitia dolores quibusdam optio sed doloremque, omnis temporibus quo voluptates.
+			<button id="hideButton">Hide me!</button>
+		</div>
+		<div>
+			At fugit commodi molestias odio, aliquam dolores deserunt incidunt eius, perspiciatis veritatis alias molestiae provident tenetur deleniti suscipit sed adipisci voluptatum optio? Animi provident odio sed necessitatibus incidunt commodi possimus?
+			<button id="hideButton">Hide me!</button>
+		</div>
+		<div>
+			Ad officia accusantium omnis voluptatibus vero suscipit cumque vel blanditiis ab, delectus, error, sapiente facere enim aspernatur iusto quidem rem! Ex esse corporis consequatur libero ab voluptatum fugit, quas fugiat!
+			<button id="hideButton">Hide me!</button>
+		</div>
+		<div>
+			A officiis provident accusantium sint. Vitae blanditiis sapiente incidunt debitis illum eius error nulla tenetur fugiat delectus praesentium, alias voluptate temporibus qui fuga voluptatum magni. Harum nihil doloremque eveniet, tempora.
+			<button id="hideButton">Hide me!</button>
+		</div>
+		<div>
+			Eligendi quia quaerat, ex esse hic dolore perspiciatis nesciunt id, obcaecati voluptatibus, maxime at veritatis, quas blanditiis ab cum nam. Cumque recusandae ut, tempora libero nisi dolor? Blanditiis, animi, sed.
+			<button id="hideButton">Hide me!</button>
+		</div>
+	</div>
+	<button id="stopEventButton">STOP HIDE IT!</button>
+
+	<div id="wrapper">
+		<h1>Скрытие текста</h1>
+		<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum officiis hic laborum magni, tenetur et minus quo. Soluta, perspiciatis, architecto.
+		</div>
+		<a href="#" id="readMore">Read more!</a>
+	</div>
+	<button id="stopEventButton2">STOP CLOSE IT!</button>
+
+
+	<script src="forAllBrowsers.js"></script>
+	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+</body>
+</html>
