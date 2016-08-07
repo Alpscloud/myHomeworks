@@ -89,18 +89,13 @@ var upButton = function () {
 
 	var btn = document.getElementById('up');
 
-	// function showBtn () {
-	// 	// определеяем высоту прокрутки
-	// 	var height = document.body.scrollTop;
-	// 	console.log(height);//IE9-
+	function showBtn () {
+		// определеяем высоту прокрутки
+		var height = document.body.scrollTop;
+		console.log(height);//IE9-
+	};
 
-	// 	// if(height <= 400) {
-	// 	// 	btn.style.cssText = "display: block";
-	// 	// } else if (height >=400) {
-	// 	// 	btn.style.cssText = "display: none";
-	// 	// }
-	// };
-
+	// функция при клике на кнопку скролит вверх
 	function goToTop (e) {
 		var e = EventUtil.getEvent(e),
 			elemTarget = EventUtil.getTarget(e);
@@ -110,9 +105,9 @@ var upButton = function () {
 	};
 
 	EventUtil.addHandler(document.body, 'click', goToTop);
+	EventUtil.addHandler(document.body, 'scroll', showBtn);
 };
 
 EventUtil.addHandler(document, 'DOMContentLoaded', upButton);
 
 	
-// EventUtil.addHandler(document, 'DOMContentLoaded', allFunctions);
