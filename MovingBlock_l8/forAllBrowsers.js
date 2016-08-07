@@ -92,7 +92,12 @@ var upButton = function () {
 	function showBtn () {
 		// определеяем высоту прокрутки
 		var height = document.body.scrollTop;
-		console.log(height);//IE9-
+
+		if (height >= 350) {
+			btn.style.cssText = 'display: block';
+		} else if (height <= 351) {
+			btn.style.cssText = 'display: none';
+		}
 	}
 
 	// функция при клике на кнопку скролит вверх
