@@ -49,10 +49,8 @@ var EventUtil = {
 // Перетаскивание блока
 
 var movingBlock = function () {
-
+	// Находим блок
 	var block = document.getElementById('moving');
-
-	EventUtil.addHandler(document.body, 'mousedown', dragHandler);
 
 	function dragHandler(e) {
 		var e = EventUtil.getEvent(e), // проверка на событие
@@ -79,6 +77,8 @@ var movingBlock = function () {
             window.removeEventListener("mousemove", moveHandler);
        	};
     };
+
+    EventUtil.addHandler(document.body, 'mousedown', dragHandler);
 
 };
 
@@ -113,5 +113,88 @@ var upButton = function () {
 };
 
 EventUtil.addHandler(document, 'DOMContentLoaded', upButton);
+
+
+// Валидация формы
+
+// регистрация обработчиков событий элементов формы.
+var validation = function () {
+
+	// находим элементы формы
+	var form = document.querySelector('form'),
+		allInputs = form.querySelectorAll('input');
+		console.log(allInputs);
+	// проверяем значение name и вешаем на них обработчики события
+	for (var i = 0; i < allInputs.length; i++) {
+
+		if (allInputs[i].getAttribute('name') === 'userName') {
+			allInputs[i].addEventListener('change', nameOnChange);
+
+		} else if (allInputs[i].getAttribute('name') === 'email') {
+			allInputs[i].addEventListener('change', emailOnChange);
+
+		} else if (allInputs[i].getAttribute('name') === 'zip') {
+			allInputs[i].addEventListener('change', zipcodeOnChange);
+
+		} else if (allInputs[i].getAttribute('type') === 'submit') {
+			allInputs[i].addEventListener('submit', onsubmitHandler);
+		}
+	};
+    
+	// метод проверки значения в элементе по регулярному выражению.
+	function validate(elem, pattern) {
+	    var res = pattern.test(elem.value);
+	    if (res === false) {
+	        elem.className = "invalid";
+	    } // установка CSS класса 
+	    else {
+	        elem.className = "valid";
+	    }
+	}
+
+	// обработчики событий изменения текста в окне.
+	function nameOnChange() {
+	    var pattern = /\S/;
+	    validate(this, pattern);
+	}
+
+	function emailOnChange() {
+	    var pattern = /\b[a-z0-9._]+@[a-z0-9.-]+\.[a-z]{2,4}\b/i;
+	    validate(this, pattern);
+	}
+
+	function zipcodeOnChange() {
+	    var pattern = /\d{5}/;
+	    validate(this, pattern);
+	}
+
+	// событие при отправке формы на сервер.
+	function onsubmitHandler(e) {
+
+	    for (var i = 0; i < allInputs.length; ++i) {
+	        if (allInputs[i].type === "text")
+	            allInputs[i].className = "valid";
+	    }
+
+	    var invalid = false;
+
+	    for (var i = 0; i < allInputs.length; ++i) {
+	        var e = allInputs[i];
+	        // проверка типа элемента и наличия обработчика события onchange.
+	        if (e.type == "text" && e.onchange) {
+	            e.onchange(); // запуск события onchanhe
+	            if (e.className == "invalid") invalid = true;
+	        }
+	    }
+
+	    if (invalid) {
+	        alert("Допущены ошибки при заполнении формы.");
+	        e.preventDefault();
+	        return false; // отмена отправки формы.
+	    }
+	}
+};
+
+EventUtil.addHandler(document, 'DOMContentLoaded', validation);
 
 	
