@@ -43,7 +43,7 @@ var EventUtil = {
 		} else {
 			e.returnValue = false;
 		}
-	},
+	}
 };
 
 // Перетаскивание блока
@@ -72,13 +72,13 @@ var movingBlock = function () {
         function moveHandler (e) {
         	block.style.left = (e.clientX - deltaX) + "px";
             block.style.top = (e.clientY - deltaY) + "px";
-        };
+        }
 
         function upHandler(e) {
             window.removeEventListener("mouseup", upHandler);
             window.removeEventListener("mousemove", moveHandler);
-       	};
-    };
+       	}
+    }
 
 };
 
@@ -93,7 +93,7 @@ var upButton = function () {
 		// определеяем высоту прокрутки
 		var height = document.body.scrollTop;
 		console.log(height);//IE9-
-	};
+	}
 
 	// функция при клике на кнопку скролит вверх
 	function goToTop (e) {
@@ -101,11 +101,11 @@ var upButton = function () {
 			elemTarget = EventUtil.getTarget(e);
 		if(elemTarget.getAttribute('data-id')) {
 			window.scrollTo(0,0);
-		};
-	};
+		}
+	}
 
 	EventUtil.addHandler(document.body, 'click', goToTop);
-	EventUtil.addHandler(document.body, 'scroll', showBtn);
+	EventUtil.addHandler(document, 'scroll', showBtn);
 };
 
 EventUtil.addHandler(document, 'DOMContentLoaded', upButton);
