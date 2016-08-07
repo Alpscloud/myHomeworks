@@ -70,7 +70,7 @@ var hideAllBlocks = function () {
 	EventUtil.addHandler(stopButton, 'click', stopHideBlock);
 };
 
-document.addEventListener('DOMContentLoaded', hideAllBlocks);
+EventUtil.addHandler(document, 'DOMContentLoaded', hideAllBlocks);
 
 
 // скрытие текста
@@ -100,4 +100,4 @@ var hideTheText = function () {
 
 };
 
-document.addEventListener('DOMContentLoaded', hideTheText);
+EventUtil.addHandler(document, 'DOMContentLoaded', hideTheText);
