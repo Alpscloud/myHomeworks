@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Fotorama</title>
+
+	<style>
+		.container,
+		#big-img,
+		#small-img {
+			
+			display:  table;
+			margin: 0 auto;
+			position:  relative;
+		}
+		#big-img img {
+			width: 600px;
+			height: 400px;
+		}
+		#small-img {
+			text-align: center;
+		}
+		#small-img img {
+			width:  200px;
+			height: 200px;
+			margin: 5px;
+		}
+
+		.active {
+			opacity: 0.5;
+		}
+
+		.outer {overflow: hidden;}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div id="big-img"></div>
+		<div class="outer">
+			<div id="small-img">
+				<img src="http://www.placehold.it/300x250" alt="">
+        <img src="http://www.placehold.it/400x250" alt="">
+        <img src="http://www.placehold.it/500x250" alt="">
+        <img src="http://www.placehold.it/600x250" alt="">
+        <img src="http://www.placehold.it/700x250" alt="">
+        <img src="http://www.placehold.it/800x250" alt="">
+        <img src="http://www.placehold.it/900x250" alt="">
+			</div>
+		</div>
+
+		<button data-id="prev" id="btnNext">prev</button>
+		<button data-id="next" id="btnPrev">next</button>
+
+	</div>
+	<script src="slider.js"></script>
+</body>
+</html>
