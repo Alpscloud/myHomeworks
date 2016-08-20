@@ -1,5 +1,5 @@
 function Fotorama(elem, preview, len) {
-	if (!elem) return;
+	// if (!elem) return;
 	this.elem = elem; //контейнер для большого изображения #big-img
 	this.preview = preview; //контейнер маленьких изображений #small-img
 	this.smallImgList = preview.querySelectorAll('img'); //все миниатюры изображения
@@ -15,7 +15,6 @@ function Fotorama(elem, preview, len) {
 	this.firstElementInit(this.preview, this.elem, this.active);
 	this.cssGenerator(this.preview, 'width', (this.width + 10) * this.count);
 	this.cssGenerator(this.outer, 'width', (this.width + 10) * this.len);
-	this.preview.addEventListener('click', this.draw.bind(this));
 	this.elem.insertAdjacentHTML('afterBegin', "<img src='" + this.preview.firstElementChild.getAttribute('src') + "' />");
 	this.addListener(this.draw, this.handlerToClick);
 };
@@ -70,16 +69,15 @@ Fotorama.prototype.draw = function(e) {
 
 // Функция клика по кнопке NEXT
 Fotorama.prototype.handlerToClick = function () {
-	var active = document.querySelector(this.active),
-		nextActiveSibling = active.nextElementSibling;
-	if (nextActiveSibling && nextActiveSibling.classList.contains(this.viewport)) {
-		this.draw(null, nextActiveSibling);
+	var active = document.querySelector(this.active);
+	if (active.nextElementSibling && active.nextElementSibling.classList.contains(this.viewport)) {
+		this.draw(null, active.nextElementSibling);
 	} else {
-		nextActiveSibling.classList.add(this.viewport);
+		active.nextElementSibling.classList.add(this.viewport);
 		this.cssGenerator(this.preview, 'left', -(this.width + 10));
 		this.preview.firstElementChild.classList.remove(this.viewport);
 		this.preview.appendChild(this.preview.firstElementChild);
-		this.draw(null, nextActiveSibling);
+		this.draw(null, active.nextElementSibling);
 		this.cssGenerator(this.preview, 'left', 0);
 	}
 }
