@@ -15,7 +15,6 @@ function Fotorama(elem, preview, len) {
 	this.firstElementInit(this.preview, this.elem, this.active);
 	this.cssGenerator(this.preview, 'width', (this.width + 10) * this.count);
 	this.cssGenerator(this.outer, 'width', (this.width + 10) * this.len);
-	this.elem.insertAdjacentHTML('afterBegin', "<img src='" + this.preview.firstElementChild.getAttribute('src') + "' />");
 	this.addListener(this.preview.draw, this.btnNext.handlerToClick);
 };
 
