@@ -16,7 +16,7 @@ function Fotorama(elem, preview, len) {
 	this.cssGenerator(this.preview, 'width', (this.width + 10) * this.count);
 	this.cssGenerator(this.outer, 'width', (this.width + 10) * this.len);
 	this.elem.insertAdjacentHTML('afterBegin', "<img src='" + this.preview.firstElementChild.getAttribute('src') + "' />");
-	this.addListener(this.draw, this.handlerToClick);
+	this.addListener(this.preview.draw, this.btnNext.handlerToClick);
 };
 
 // Функция загрузки первого большого изображение в зависимости от первого изображения миниатюры
