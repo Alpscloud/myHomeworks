@@ -54,21 +54,21 @@ Fotorama.prototype.addListener = function () {
 }
 
 // Функция выбора миниатюры изображения => Большое изображение
-Fotorama.prototype.draw = function(e) {
-	if (!e) e = window.event;
-	var el = e.target;
+Fotorama.prototype.draw = function(event, el) {
+	var target = event && event.target ? event.target : el,
+          src = target.src ? target.src : "";
 
 	this.removeClass();
 
-	if(el.tagName === 'IMG') {
-		this.elem.firstElementChild.src = el.src;
-		el.classList.add(this.active);
+	if(target.tagName === 'IMG') {
+		this.elem.firstElementChild.src = src;
+		target.classList.add(this.active);
 	} 
 }
 
 // Функция клика по кнопке NEXT
 Fotorama.prototype.handlerToClick = function () {
-	var active = document.querySelector(this.active);
+	var active = document.querySelector('.' + this.active);
 	if (active.nextElementSibling && active.nextElementSibling.classList.contains(this.viewport)) {
 		this.draw(null, active.nextElementSibling);
 	} else {
@@ -81,6 +81,6 @@ Fotorama.prototype.handlerToClick = function () {
 	}
 }
 
-new Fotorama(document.querySelector('#big-img'), document.querySelector('#small-img'), 3);
+new Fotorama(document.querySelector('#big-img'), document.querySelector('#small-img'), 5);
 
 
