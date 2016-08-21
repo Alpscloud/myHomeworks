@@ -5,22 +5,22 @@
 	<title>Fotorama</title>
 
 	<style>
-		.container,
-		#big-img,
-		#small-img {
+		.slide,
+		.img-slide,
+		.slider-list {
 			
 			display:  table;
 			margin: 0 auto;
 			position:  relative;
 		}
-		#big-img img {
+		.img-slide img {
 			width: 600px;
 			height: 400px;
 		}
-		#small-img {
+		.slider-list {
 			text-align: center;
 		}
-		#small-img img {
+		.slider-list img {
 			width:  200px;
 			height: 200px;
 			margin: 5px;
@@ -34,10 +34,10 @@
 	</style>
 </head>
 <body>
-	<div class="container">
-		<div id="big-img"></div>
+	<div class="slide">
+		<div class = "img-slide"></div>
 		<div class="outer">
-			<div id="small-img">
+			<div class="slider-list">
 				<img src="http://www.placehold.it/300x250" alt="">
 		        <img src="http://www.placehold.it/400x250" alt="">
 		        <img src="http://www.placehold.it/500x250" alt="">
@@ -48,7 +48,7 @@
 			</div>
 		</div>
 
-		<button data-id="next" id="btnNext">next</button>
+		<button data-id="next" class="next">next</button>
 
 	</div>
 	<script src="slider.js"></script>
