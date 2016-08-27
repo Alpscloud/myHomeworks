@@ -87,6 +87,7 @@ Fotorama.prototype.handler = function(event, elem) {
 // Функция удаление класса active 
 Fotorama.prototype.removeClass = function () {
 	var active = document.querySelector('.' + this.activeClass);
+	// здесь ошибка! проверить
 	if (active.tagName === 'IMG') {
 		active.classList.remove(this.activeClass);
 	}
